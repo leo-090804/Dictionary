@@ -1,0 +1,117 @@
+/* Set css for all the Btn */
+.button {
+    -fx-background-color: #2596be;
+    -fx-text-fill: white;
+
+}
+
+.button:hover {
+    -fx-background-color: #2196F3;
+    -fx-text-fill: white;
+
+}
+
+/* Set css for the Alert */
+.alert-container {
+    -fx-background-radius: 5;
+    -fx-background-color: rgba(0, 0, 0, 0.8);
+    -fx-padding: 10;
+}
+
+.alert-text {
+    -fx-fill: white;
+    -fx-font-size: 24;
+}
+
+/* EndWindow CSS */
+.button#play-again-btn {
+    -fx-background-color: #6CA965;
+    -fx-text-fill: white;
+}
+
+.button#play-again-btn:hover {
+    -fx-background-color: #8ABF81;
+}
+
+#correctWordLabel {
+    -fx-font-family: "Arial";
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #6CA965;
+}
+
+/* gameEngine CSS */
+.label-default {
+    -fx-border-width: 2px;
+    -fx-min-width: 62px;
+    -fx-min-height: 62px;
+    -fx-pref-width: 65px;
+    -fx-pref-height: 65px;
+    -fx-font-size: 30px;
+
+    -fx-text-alignment: center;
+    -fx-alignment: center;
+
+    -fx-background-color: white;
+    -fx-font-weight: bold;
+    -fx-border-color: #d3d6da;
+    -fx-text-fill: black;
+}
+
+.correct-label {
+    -fx-border-width: 2px;
+    -fx-min-width: 62px;
+    -fx-min-height: 62px;
+    -fx-pref-width: 65px;
+    -fx-pref-height: 65px;
+    -fx-font-size: 30px;
+
+    -fx-text-alignment: center;
+    -fx-alignment: center;
+
+    -fx-background-color: #6CA965;
+    -fx-border-color: #6CA965;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.contain-label {
+    -fx-border-width: 2px;
+    -fx-min-width: 62px;
+    -fx-min-height: 62px;
+    -fx-pref-width: 65px;
+    -fx-pref-height: 65px;
+    -fx-font-size: 30px;
+
+    -fx-text-alignment: center;
+    -fx-alignment: center;
+
+    -fx-background-color: #C8B653;
+    -fx-border-color: #C8B653;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.wrong-label {
+    -fx-border-width: 2px;
+    -fx-min-width: 62px;
+    -fx-min-height: 62px;
+    -fx-pref-width: 65px;
+    -fx-pref-height: 65px;
+    -fx-font-size: 30px;
+
+    -fx-text-alignment: center;
+    -fx-alignment: center;
+
+    -fx-background-color: #787c7f;
+    -fx-border-color: #787c7f;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.label-with-letter {
+    -fx-border-color: #878a8a;
+}
+
+
+

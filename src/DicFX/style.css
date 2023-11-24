@@ -1,0 +1,10 @@
+.button {
+    -fx-background-color: pink;
+    -fx-text-fill: white;
+    -fx-background-radius: 50%;
+
+}
+
+.button:hover {
+    -fx-background-color: rgba(0, 0, 0, 0.2);
+}
