@@ -14,8 +14,9 @@
     <children>
         <AnchorPane prefHeight="480.0" prefWidth="300.0">
             <children>
-                <ListView fx:id="listView" layoutX="20.0" layoutY="96.0" prefHeight="360.0" prefWidth="280.0"
-                          style="-fx-border-radius: 50%; -fx-max-height: 360;"/>
+                <ListView fx:id="listView" layoutX="20.0" layoutY="96.0" prefHeight="360.0"
+                          maxHeight="360.0"
+                          prefWidth="280.0"/>
                 <TextField fx:id="inputtext" layoutX="33.0" layoutY="38.0" prefHeight="40.0"
                            prefWidth="200.0"/>
                 <Button fx:id="searchBtn" contentDisplay="GRAPHIC_ONLY" layoutX="236.0"

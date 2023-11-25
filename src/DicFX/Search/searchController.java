@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
 
 import java.net.URL;
 import java.util.HashSet;
@@ -34,7 +35,6 @@ public class searchController implements Initializable {
 
     @FXML
     private TextArea textOut;
-
     @FXML
     private TextArea definitionOut;
 
@@ -62,6 +62,7 @@ public class searchController implements Initializable {
                 Label noword = new Label("Word not available");
                 noword.setStyle("-fx-font-size: 14; -fx-text-fill: black;");
                 listView.setPlaceholder(noword);
+                listView.setPrefHeight(360.0);
             }
         } else {
             inputtext.setPromptText("Please enter a word first");
@@ -70,7 +71,6 @@ public class searchController implements Initializable {
             listView.getItems().clear();
             listView.setPlaceholder(enterword);
             listView.setPrefHeight(360.0);
-//            listView.setOnMouseClicked(null);
         }
     }
 
@@ -84,19 +84,20 @@ public class searchController implements Initializable {
 
         listView.getItems().addAll(output.getAllWordsOffline());
 
-//        listView.setCellFactory(lv -> {
-//            ListCell<String> cell = new ListCell<>();
-//            cell.textProperty().bind(cell.itemProperty());
-//            cell.setStyle(
-//                    "-fx-background-color: white; " +
+        listView.setCellFactory(lv -> {
+            ListCell<String> cell = new ListCell<>();
+            cell.textProperty().bind(cell.itemProperty());
+            cell.setStyle(
+                    "-fx-background-color: pink; " +
 //                            "-fx-border-color: pink; " +
 //                            "-fx-border-width: 1px; " +
 //                            "-fx-border-radius: 15%;" +
-//                            "-fx-cell-size: 40px;" +
-//                            "-fx-font-family: 'Century';" +
-//                            "-fx-font-size: 15px;");
-//            return cell;
-//        });
+                            "-fx-cell-size: 25px;"
+//                            "-fx-font-family: 'Century';"
+//                            "-fx-font-size: 10px;");
+            );
+            return cell;
+        });
 
         searchBtn.setOnAction(event -> search(null));
 
@@ -125,16 +126,18 @@ public class searchController implements Initializable {
                     Label noword = new Label("Word not available");
                     noword.setStyle("-fx-font-size: 14; -fx-text-fill: black;");
                     listView.setPlaceholder(noword);
-//                    listView.setOnMouseClicked(null);
                 }
             }
         });
 
         listView.setOnMouseClicked(event -> {
             String selectedText = listView.getSelectionModel().getSelectedItem();
-            if (!selectedText.equals(null)) {
-//                inputtext.setText(selectedText);
-                textOut.setText(output.searchWord(selectedText));
+            try {
+                if (!selectedText.equals(null)) {
+                    textOut.setText(output.searchWord(selectedText));
+                }
+            } catch (Exception e) {
+                listView.getItems().addAll(output.getAllWordsOffline());
             }
         });
     }
