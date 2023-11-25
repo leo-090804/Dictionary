@@ -8,8 +8,10 @@ import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 
 import java.net.URL;
-
-import java.util.*;
+import java.util.HashSet;
+import java.util.List;
+import java.util.ResourceBundle;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import static Audio.OfflineAudio.usingOfflineSpeak;
@@ -67,6 +69,8 @@ public class searchController implements Initializable {
             enterword.setStyle("-fx-font-size: 14; -fx-text-fill: black;");
             listView.getItems().clear();
             listView.setPlaceholder(enterword);
+            listView.setPrefHeight(360.0);
+//            listView.setOnMouseClicked(null);
         }
     }
 
@@ -91,7 +95,7 @@ public class searchController implements Initializable {
 //                            "-fx-cell-size: 40px;" +
 //                            "-fx-font-family: 'Century';" +
 //                            "-fx-font-size: 15px;");
-//            return cell ;
+//            return cell;
 //        });
 
         searchBtn.setOnAction(event -> search(null));
@@ -109,17 +113,19 @@ public class searchController implements Initializable {
                     if (searchResults.isEmpty()) {
                         performFuzzySearch(searchWord, allWordsOnSet);
                     } else {
-                        for (String item : searchResults){
+                        for (String item : searchResults) {
                             if (!item.equals(null)) {
                                 listView.getItems().add(item);
                             }
                         }
+                        listView.setPrefHeight(25 * listView.getItems().size());
                     }
                 } catch (NullPointerException e) {
                     listView.getItems().clear();
                     Label noword = new Label("Word not available");
                     noword.setStyle("-fx-font-size: 14; -fx-text-fill: black;");
                     listView.setPlaceholder(noword);
+//                    listView.setOnMouseClicked(null);
                 }
             }
         });
@@ -155,11 +161,14 @@ public class searchController implements Initializable {
         if (!similarWords.isEmpty()) {
             listView.getItems().addAll(similarWords);
 
+            listView.setPrefHeight(25 * listView.getItems().size());
+
         } else {
             listView.getItems().clear();
             Label noword = new Label("Word not available");
             noword.setStyle("-fx-font-size: 14; -fx-text-fill: black;");
             listView.setPlaceholder(noword);
+            listView.setPrefHeight(360.0);
         }
 
     }
