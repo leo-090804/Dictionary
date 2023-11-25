@@ -4,18 +4,12 @@ import DictionaryMethod.Offline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 
 import java.net.URL;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.ResourceBundle;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import static Audio.OfflineAudio.usingOfflineSpeak;
@@ -27,6 +21,7 @@ public class searchController implements Initializable {
         String selectedText = listView.getSelectionModel().getSelectedItem();
         inputtext.setText(selectedText);
     }
+
     private Offline output = new Offline();
 
     @FXML
@@ -47,46 +42,57 @@ public class searchController implements Initializable {
     @FXML
     void search(ActionEvent event) {
 //        listView.getItems().clear();
-//        textOut.clear();
-//        String searchWord = inputtext.getText().trim();
-//        if (!searchWord.isEmpty()) {
-//            try {
-//                Set<String> allWordsOfflineSet = new HashSet<>(output.getAllWordsOffline());
-//                List<String> searchResults = databaseSearchMethod.exactSearch(searchWord, allWordsOfflineSet);
-//
-//                if (searchResults.isEmpty()) {
-//                    performFuzzySearch(searchWord, allWordsOfflineSet);
-//                } else {
-//                    textOut.setText(String.join("\n", searchResults));
-//                }
-//
-//            } catch (NullPointerException e) {
-//                listView.getItems().add("Từ không có sẵn");
-//            }
-//        }
-        listView.getItems().clear();
-        definitionOut.clear();
+        textOut.clear();
         String searchWord = inputtext.getText().trim();
-
         if (!searchWord.isEmpty()) {
             try {
-                String searchResult = output.searchWord(searchWord); // Gọi phương thức
+                Set<String> allWordsOfflineSet = new HashSet<>(output.getAllWordsOffline());
+                String searchResults = output.searchWord(searchWord);
 
-                if (searchResult.isEmpty()) {
-                    listView.getItems().add("Từ không có sẵn");
+                if (searchResults.equals(null)) {
+                    performFuzzySearch(searchWord, allWordsOfflineSet);
                 } else {
-                    definitionOut.setText(searchResult); // Hiển thị kết quả tìm kiếm trong textOut
+                    textOut.setText(searchResults);
                 }
 
             } catch (NullPointerException e) {
-                listView.getItems().add("Từ không có sẵn");
+                listView.getItems().clear();
+                Label noword = new Label("Word not available");
+                noword.setStyle("-fx-font-size: 14; -fx-text-fill: black;");
+                listView.setPlaceholder(noword);
             }
+        } else {
+            inputtext.setPromptText("Please enter a word first");
+            Label enterword = new Label("Please enter a word first");
+            enterword.setStyle("-fx-font-size: 14; -fx-text-fill: black;");
+            listView.getItems().clear();
+            listView.setPlaceholder(enterword);
         }
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        textOut.setEditable(false);
+        textOut.setWrapText(true);
+
+        inputtext.setPromptText("Enter a word");
+
         listView.getItems().addAll(output.getAllWordsOffline());
+
+//        listView.setCellFactory(lv -> {
+//            ListCell<String> cell = new ListCell<>();
+//            cell.textProperty().bind(cell.itemProperty());
+//            cell.setStyle(
+//                    "-fx-background-color: white; " +
+//                            "-fx-border-color: pink; " +
+//                            "-fx-border-width: 1px; " +
+//                            "-fx-border-radius: 15%;" +
+//                            "-fx-cell-size: 40px;" +
+//                            "-fx-font-family: 'Century';" +
+//                            "-fx-font-size: 15px;");
+//            return cell ;
+//        });
 
         searchBtn.setOnAction(event -> search(null));
 
@@ -94,26 +100,37 @@ public class searchController implements Initializable {
             listView.getItems().clear();
             textOut.clear();
             String searchWord = newValue.trim();
-            if (!searchWord.isEmpty()) {
+            if (searchWord.isEmpty()) {
+                listView.getItems().addAll(output.getAllWordsOffline());
+            } else {
                 try {
-                    Set<String> allWordsOnlineSet = new HashSet<>(output.getAllWordsOffline());
-                    List<String> searchResults = searchList(searchWord, allWordsOnlineSet);
+                    Set<String> allWordsOnSet = new HashSet<>(output.getAllWordsOffline());
+                    List<String> searchResults = searchList(searchWord, allWordsOnSet);
                     if (searchResults.isEmpty()) {
-                        performFuzzySearch(searchWord, allWordsOnlineSet);
+                        performFuzzySearch(searchWord, allWordsOnSet);
                     } else {
-                        listView.getItems().addAll(searchResults);
+                        for (String item : searchResults){
+                            if (!item.equals(null)) {
+                                listView.getItems().add(item);
+                            }
+                        }
                     }
                 } catch (NullPointerException e) {
-                    listView.getItems().add("Từ không có sẵn");
+                    listView.getItems().clear();
+                    Label noword = new Label("Word not available");
+                    noword.setStyle("-fx-font-size: 14; -fx-text-fill: black;");
+                    listView.setPlaceholder(noword);
                 }
             }
         });
 
         listView.setOnMouseClicked(event -> {
             String selectedText = listView.getSelectionModel().getSelectedItem();
-            inputtext.setText(selectedText);
+            if (!selectedText.equals(null)) {
+//                inputtext.setText(selectedText);
+                textOut.setText(output.searchWord(selectedText));
+            }
         });
-
     }
 
     private List<String> searchList(String searchWords, Set<String> setOfStrings) {
@@ -122,7 +139,7 @@ public class searchController implements Initializable {
         return setOfStrings.parallelStream()
                 .filter(input -> searchWordsArray.stream().anyMatch(word ->
                         input.toLowerCase().startsWith(word.toLowerCase())))
-                .limit(15)
+//                .limit(15)
                 .collect(Collectors.toList());
     }
 
@@ -132,14 +149,19 @@ public class searchController implements Initializable {
                 .filter(word -> calculateSimilarity(wordTarget, word) < 0.56)
                 .sorted((a, b) -> Double.compare(calculateSimilarity(wordTarget, b),
                         calculateSimilarity(wordTarget, a)))
-                .limit(3)  // Giới hạn kết quả chỉ tìm 3 từ tương đồng
+//                .limit(3)  // Giới hạn kết quả chỉ tìm 3 từ tương đồng
                 .collect(Collectors.toList());
 
         if (!similarWords.isEmpty()) {
             listView.getItems().addAll(similarWords);
+
         } else {
-            listView.getItems().add("Không tìm thấy từ gần giống.");
+            listView.getItems().clear();
+            Label noword = new Label("Word not available");
+            noword.setStyle("-fx-font-size: 14; -fx-text-fill: black;");
+            listView.setPlaceholder(noword);
         }
+
     }
 // thêm việc tìm kiếm mờ xuất phát từ kí tự đầu tiên của từ cần tìm
 

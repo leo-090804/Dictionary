@@ -148,6 +148,7 @@ public class modifyController implements Initializable {
     void search(ActionEvent event) {
         listView.getItems().clear();
         String searchWord = searchBar.getText().trim();
+
         if (!searchWord.isEmpty()) {
             try {
                 Set<String> allWordsOnlineSet = new HashSet<>(output.showAddedWord());
@@ -172,7 +173,10 @@ public class modifyController implements Initializable {
         searchBar.textProperty().addListener((observable, oldValue, newValue) -> {
             listView.getItems().clear();
             String searchWord = newValue.trim();
-            if (!searchWord.isEmpty()) {
+            if (searchWord.isEmpty()){
+                listView.getItems().addAll(output.showAddedWord());
+            }
+            else {
                 try {
                     Set<String> allWordsOnlineSet = new HashSet<>(output.showAddedWord());
                     List<String> searchResults = searchList(searchWord, allWordsOnlineSet);
@@ -189,8 +193,13 @@ public class modifyController implements Initializable {
 
         listView.setOnMouseClicked(event -> {
             String selectedText = listView.getSelectionModel().getSelectedItem();
-            searchBar.setText(selectedText);
-            search(null);
+            if (!selectedText.equals(null)) {
+                searchBar.setText(selectedText);
+                editPopup(null);
+            }
+            else {
+                search(null);
+            }
         });
     }
 

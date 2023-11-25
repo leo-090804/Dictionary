@@ -243,7 +243,7 @@ public class Offline implements DictionaryConnection {
     }
 
     public List<String> getAllWordsOffline() {
-        String sql = "SELECT word FROM entries";
+        String sql = "SELECT DISTINCT word FROM entries";
 
         List<String> words = new ArrayList<>();
 
@@ -253,7 +253,7 @@ public class Offline implements DictionaryConnection {
 
             while (rs.next()) {
                 String word = rs.getString("word");
-                words.add(word);
+                words.add(word.toLowerCase());
             }
         } catch (SQLException e) {
             e.printStackTrace();

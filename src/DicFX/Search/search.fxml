@@ -29,7 +29,7 @@
       <AnchorPane layoutX="300.0" layoutY="1.0" prefHeight="480.0" prefWidth="430.0">
          <children>
             <TextArea fx:id="textOut" layoutX="34.0" layoutY="96.0" prefHeight="360.0" prefWidth="360.0" />
-            <TextArea fx:id="definitionOut"/>
+<!--            <TextArea fx:id="definitionOut"/>-->
             <HBox alignment="TOP_RIGHT" layoutX="34.0" layoutY="36.0" prefHeight="42.0" prefWidth="360.0">
                <children>
                   <Button fx:id="soundBtn" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onMouseClicked="#soundWord" prefHeight="42.0" prefWidth="42.0" text="Button" textAlignment="CENTER">
