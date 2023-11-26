@@ -25,7 +25,7 @@ BTL môn Lập trình hướng đối tượng INT2204_20 - UET
 
 ## Installation  
 1. Tải và cài đặt [Intellij](https://www.jetbrains.com/idea/download) hoặc bất kỳ IDE nào tương tự.
-2. Tải hoặc clone project: `git clone [link to the project]`.
+2. Tải hoặc clone project: `git clone https://github.com/leo-090804/dictionary`.
 3. Tải và cài đặt [JavaFX](https://openjfx.io/openjfx-docs) theo hướng dẫn cài đặt.
 4. Mở Project trong Intellij và set up JVM:
 
