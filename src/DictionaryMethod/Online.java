@@ -12,19 +12,6 @@ import java.util.List;
 
 public class Online implements DictionaryConnection {
 
-//    public Connection connection() {
-//        String url = "jdbc:mysql://dictionary-db.c2yfcldk0oot.ap-southeast-2.rds.amazonaws.com:3306/dictionary";
-//        String user = "admin";
-//        String password = "LeoLincoln9804";
-//        Connection conn = null;
-//        try {
-//            conn = DriverManager.getConnection(url, user, password);
-//        } catch (Exception e) {
-//            System.out.println(e.getMessage());
-//            e.printStackTrace();
-//        }
-//        return conn;
-//    }
 
     @Override
     public String connectionType() {

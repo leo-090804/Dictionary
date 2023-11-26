@@ -62,7 +62,7 @@ public class TranslateController implements Initializable {
         });
 
 
-        //System.out.println("translate init");
+
 
 
     }
@@ -74,10 +74,6 @@ public class TranslateController implements Initializable {
         // Gọi API để lấy kết quả dịch
         String translationResult = api.searchWord(word);
 
-//        // Get audio
-//        audioUrl = api.getWordAudio();
-//
-//        if (audioUrl == null) System.out.println("khong co");
 
         // Hiển thị kết quả lên displayRes
         displayRes.setText(translationResult);

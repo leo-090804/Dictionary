@@ -38,11 +38,6 @@ public class phrvController implements Initializable {
                 textOut.setText(searchResults);
             }
 
-//                if (searchResults == null) {
-//                    performFuzzySearch(searchWord, allPhrasesOfflineSet);
-//                } else {
-
-//                }
 
             else {
                 listView.getItems().clear();

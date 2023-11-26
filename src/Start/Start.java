@@ -28,7 +28,6 @@ public class Start extends Application {
         Image icon = new Image("img/icons8-english-48.png");
         primaryStage.getIcons().add(icon);
 
-        // primaryStage.initStyle(StageStyle.TRANSPARENT);
         // Gan xu ly su kien cho Node root lam cho dictionary co the keo tha vi tri
         // Lay toa do cua chuot khi chuot click vao vi tri bat ky
         root.setOnMousePressed(event -> {

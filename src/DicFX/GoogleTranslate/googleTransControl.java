@@ -58,10 +58,6 @@ public class googleTransControl implements Initializable {
     private Button soundBtn1;
 
 
-//    private final static String ENG_IMG = "../../img/icons8-english-48.png";
-//
-//    private final static String VI_IMG = "../../img/icons8-vietnam-48.png";
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         // Tranh tran chu
