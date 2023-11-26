@@ -11,6 +11,7 @@ BTL môn Lập trình hướng đối tượng INT2204_20 - UET
 - [Installation](#installation)
 - [About](#about)
 - [Features](#features)
+- [UML](#uml)
 - [Technologies](#technologies)
 
 ## Authors
@@ -65,6 +66,10 @@ BTL môn Lập trình hướng đối tượng INT2204_20 - UET
 6. Game Wordle để giải trí hỗ trợ học tập Tiếng Anh:
 
 ![](src/img/img6.png)
+
+## UML 
+
+![](src/img/UML.png)
 
 ## Technologies
 - IntelliJ  
