@@ -30,7 +30,7 @@ BTL môn Lập trình hướng đối tượng INT2204_20 - UET
 4. Mở Project trong Intellij và set up JVM:
 
 `Run` -> `Edit Configurations` -> `Add new run configuration` 
- Main class: `Start.MainFX`
+ Main class: `Start.Start`
 
 `Modify options` -> `Add VM options` -> VM options: 
 - Window: --module-path "\path\to\javafx-sdk-21.0.1\lib" --add-modules javafx.controls,javafx.fxml
