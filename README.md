@@ -13,7 +13,7 @@ BTL môn Lập trình hướng đối tượng INT2204_20 - UET
 - [Features](#features)
 - [UML](#uml)
 - [Technologies](#technologies)
-- [Source](#source)
+
 
 ## Authors
 
@@ -85,8 +85,4 @@ BTL môn Lập trình hướng đối tượng INT2204_20 - UET
 - Google Cloud Translate Library
 - Java Google Speech API Library
 
-## Source 
-- https://dictionaryapi.dev/
-- https://github.com/WithEnglishWeCan/generated-english-phrasal-verbs
-- https://github.com/goxr3plus/java-google-speech-api
-- https://ap-southeast-2.console.aws.amazon.com/rds/home?region=ap-southeast-2# 
+
