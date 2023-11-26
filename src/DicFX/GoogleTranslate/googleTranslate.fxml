@@ -10,43 +10,51 @@
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="DicFX.GoogleTranslate.googleTransControl">
     <children>
-        <TextArea fx:id="inputArea" layoutX="31.0" layoutY="109.0" prefHeight="300.0"
-                  prefWidth="300.0" promptText="Insert here"
-                  style="-fx-border-width: 5; -fx-border-color: #2596be;" styleClass="shadow">
+        <TextArea fx:id="inputArea" layoutX="31.0" layoutY="159.0" prefHeight="200.0"
+                  prefWidth="300.0" promptText="Enter something here"
+                  style="-fx-border-width: 2; -fx-border-color: black;">
+            <styleClass>
+                <String fx:value="input-area"/>
+                <String fx:value="shadow"/>
+            </styleClass>
             <font>
-                <Font name="Arial" size="13.0"/>
+                <Font name="Arial" size="14.0"/>
             </font>
         </TextArea>
-        <TextArea fx:id="outputArea" layoutX="400.0" layoutY="109.0" prefHeight="300.0"
-                  prefWidth="300.0" promptText="Result here"
-                  style="-fx-border-width: 5; -fx-border-color: #2596be;" styleClass="shadow">
+        <TextArea fx:id="outputArea" layoutX="400.0" layoutY="159.0" prefHeight="200.0"
+                  prefWidth="300.0"
+                  style="-fx-border-width: 2; -fx-border-color: black;">
+            <styleClass>
+                <String fx:value="shadow"/>
+                <String fx:value="output-area"/>
+            </styleClass>
             <font>
-                <Font name="Arial" size="13.0"/>
+                <Font name="Arial" size="14.0"/>
             </font>
         </TextArea>
-        <Button fx:id="transBtn" alignment="CENTER" layoutX="331.0" layoutY="426.0"
+        <Button fx:id="transBtn" alignment="CENTER" layoutX="300.0" layoutY="400.0"
                 mnemonicParsing="false" onMouseClicked="#translateTextInput" text="Translate">
             <styleClass>
                 <String fx:value="shadow"/>
                 <String fx:value="trans"/>
             </styleClass>
             <font>
-                <Font name="Arial Bold" size="14.0"/>
+                <Font name="Comic Sans MS" size="20.0"/>
             </font>
         </Button>
-        <Label fx:id="Label1" alignment="CENTER" layoutX="31.0" layoutY="9.0" prefHeight="48.0"
-               prefWidth="300.0" text="ENGLISH" textAlignment="CENTER">
+        <Label fx:id="Label1" alignment="CENTER" layoutX="31.0" layoutY="110.0" prefHeight="48.0"
+               prefWidth="300.0" text="ENGLISH" textAlignment="CENTER" styleClass="label">
             <font>
-                <Font size="24.0"/>
+                <Font name="Comic Sans MS" size="24.0"/>
             </font>
         </Label>
-        <Label fx:id="Label2" alignment="CENTER" layoutX="400.0" layoutY="9.0" prefHeight="48.0"
-               prefWidth="300.0" text="VIETNAMESE" textAlignment="CENTER">
+        <Label fx:id="Label2" alignment="CENTER" layoutX="400.0" layoutY="110.0" prefHeight="48.0"
+               prefWidth="300.0" text="VIETNAMESE" textAlignment="CENTER" styleClass="label">
             <font>
-                <Font size="24.0"/>
+                <Font name="Comic Sans MS" size="24.0"/>
             </font>
         </Label>
-        <Button fx:id="switchBtn" contentDisplay="GRAPHIC_ONLY" layoutX="341.0" layoutY="12.0"
+        <Button fx:id="switchBtn" contentDisplay="GRAPHIC_ONLY" layoutX="341.0" layoutY="240.0"
                 mnemonicParsing="false" onMouseClicked="#SwitchTrans" prefHeight="42.0"
                 prefWidth="42.0">
             <graphic>
@@ -62,7 +70,7 @@
                 <String fx:value="shadow"/>
             </styleClass>
         </Button>
-        <Button fx:id="btn1" contentDisplay="GRAPHIC_ONLY" layoutX="281.0" layoutY="60.0"
+        <Button fx:id="btn1" contentDisplay="GRAPHIC_ONLY" layoutX="281.0" layoutY="110.0"
                 mnemonicParsing="false" onMouseClicked="#playAudioIn" prefHeight="42.0"
                 prefWidth="42.0" text="Button" textAlignment="CENTER">
             <graphic>
@@ -78,7 +86,7 @@
                 <String fx:value="shadow"/>
             </styleClass>
         </Button>
-        <Button fx:id="btn2" contentDisplay="GRAPHIC_ONLY" layoutX="650.0" layoutY="60.0"
+        <Button fx:id="btn2" contentDisplay="GRAPHIC_ONLY" layoutX="650.0" layoutY="110.0"
                 mnemonicParsing="false" onMouseClicked="#playAudioOut" prefHeight="42.0"
                 prefWidth="42.0" text="Button" textAlignment="CENTER">
             <styleClass>

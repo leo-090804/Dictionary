@@ -1,5 +1,5 @@
 .sound-button {
-    -fx-background-color: #D3D3D3;
+    -fx-background-color: transparent;
     -fx-background-radius: 30;
 }
 
@@ -12,7 +12,7 @@
 }
 
 .scroll-bar {
-    -fx-background-color: transparent;
+    -fx-background-color: blue;
 }
 
 .scroll-bar .thumb {
@@ -22,8 +22,7 @@
 
 .trans {
     -fx-background-color: #2596be;
-    -fx-text-fill: white;
-
+    -fx-text-fill: black;
 }
 
 .trans:hover {
@@ -33,8 +32,46 @@
 }
 
 .label {
-    -fx-background-color: #2196F3;
-    -fx-text-fill: white;
+    -fx-background-color: transparent;
+    -fx-text-fill: black;
     -fx-font-weight: bold;
     -fx-background-radius: 30;
+}
+
+.input-area {
+    -fx-background-color: transparent;
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+    -fx-prompt-text-fill: black;
+}
+
+.input-area .scroll-pane {
+    -fx-background-color: transparent;
+}
+
+.input-area .scroll-pane .viewport {
+    -fx-background-color: transparent;
+}
+
+.input-area .scroll-pane .content {
+    -fx-background-color: transparent;
+}
+
+.output-area {
+    -fx-background-color: transparent;
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+    -fx-prompt-text-fill: black;
+}
+
+.output-area .scroll-pane {
+    -fx-background-color: transparent;
+}
+
+.output-area .scroll-pane .viewport {
+    -fx-background-color: transparent;
+}
+
+.output-area .scroll-pane .content {
+    -fx-background-color: transparent;
 }

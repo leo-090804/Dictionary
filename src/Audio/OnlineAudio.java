@@ -22,7 +22,7 @@ public class OnlineAudio {
                 audioPlayer.play();
 
             } catch (IOException | JavaLayerException e) {
-
+                System.out.println("Word not exist");
                 e.printStackTrace();
 
             }

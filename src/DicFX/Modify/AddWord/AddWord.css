@@ -1,0 +1,42 @@
+.new-word {
+    -fx-background-radius: 100;
+    -fx-background-color: transparent;
+    -fx-border-color: black;
+    -fx-border-width: 2px;
+    -fx-border-radius: 15;
+    -fx-padding: 10px;
+    -fx-effect: dropShadow(three-pass-box, rgba(0, 0, 0, 0.1), 10.0, 0.0, 0.0, 10.0);
+    -fx-prompt-text-fill: black;
+}
+
+.new-word-type {
+    -fx-background-radius: 100;
+    -fx-background-color: transparent;
+    -fx-border-color: black;
+    -fx-border-width: 2px;
+    -fx-border-radius: 15;
+    -fx-padding: 10px;
+    -fx-effect: dropShadow(three-pass-box, rgba(0, 0, 0, 0.1), 10.0, 0.0, 0.0, 10.0);
+    -fx-prompt-text-fill: black;
+}
+
+.new-meaning {
+    -fx-background-radius: 100;
+    -fx-background-color: transparent;
+    -fx-border-color: black;
+    -fx-border-width: 2px;
+    -fx-border-radius: 15;
+    -fx-padding: 10px;
+    -fx-effect: dropShadow(three-pass-box, rgba(0, 0, 0, 0.1), 10.0, 0.0, 0.0, 10.0);
+    -fx-prompt-text-fill: black;
+}
+
+.button {
+    -fx-background-color: #2596be;
+    -fx-text-fill: black;
+}
+
+.button:hover {
+    -fx-background-color: #2196F3;
+    -fx-text-fill: white;
+}

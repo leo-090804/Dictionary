@@ -23,14 +23,14 @@
                 onMouseClicked="#GuidePage" prefHeight="26.0" prefWidth="120.0"
                 stylesheets="@game.css" text="How to play">
             <font>
-                <Font name="Arial" size="14.0"/>
+                <Font name="Comic Sans MS" size="14.0"/>
             </font>
         </Button>
         <Button fx:id="restartBtn" layoutX="89.0" layoutY="279.0" mnemonicParsing="false"
                 onMouseClicked="#ResetGame" prefHeight="26.0" prefWidth="120.0"
                 stylesheets="@game.css" text="Restart">
             <font>
-                <Font name="Arial" size="14.0"/>
+                <Font name="Comic Sans MS" size="14.0"/>
             </font>
         </Button>
     </children>

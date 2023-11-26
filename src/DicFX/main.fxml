@@ -28,7 +28,7 @@
                     </graphic>
                 </Button>
                 <Button fx:id="addBtn" alignment="CENTER" contentDisplay="GRAPHIC_ONLY"
-                        layoutX="10.0" layoutY="64" mnemonicParsing="false"
+                        layoutX="10.0" layoutY="164" mnemonicParsing="false"
                         onMouseClicked="#translatePage" prefHeight="48.0" prefWidth="48.0"
                         text="Button">
                     <graphic>
@@ -53,7 +53,8 @@
                         </ImageView>
                     </graphic>
                 </Button>
-                <Button fx:id="gameBtn" contentDisplay="GRAPHIC_ONLY" layoutX="10.0" layoutY="164"
+                <Button fx:id="gameBtn" contentDisplay="GRAPHIC_ONLY" layoutX="10.0"
+                        layoutY="264"
                         mnemonicParsing="false" onMouseClicked="#gamePage" prefHeight="48.0"
                         prefWidth="48.0" text="Button">
                     <graphic>
@@ -89,7 +90,7 @@
                         </ImageView>
                     </graphic>
                 </Button>
-                <Button fx:id="phrvBtn" contentDisplay="GRAPHIC_ONLY" layoutX="10.0" layoutY="264"
+                <Button fx:id="phrvBtn" contentDisplay="GRAPHIC_ONLY" layoutX="10.0" layoutY="64"
                         mnemonicParsing="false" onMouseClicked="#phrvPage" prefHeight="48.0"
                         prefWidth="48.0" text="Button">
                     <graphic>

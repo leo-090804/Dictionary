@@ -1,11 +1,11 @@
 .search-box {
     -fx-background-radius: 100;
-    -fx-border-width: 0;
-    -fx-background-color: #F0F0F0;
+    -fx-background-color: transparent;
     -fx-border-color: transparent;
     -fx-border-width: 2px;
     -fx-padding: 10px;
     -fx-effect: dropShadow(three-pass-box, rgba(0, 0, 0, 0.1), 10.0, 0.0, 0.0, 10.0);
+    -fx-prompt-text-fill: black;
 }
 
 .transparent {
@@ -28,25 +28,37 @@
 
 .text-area {
     -fx-effect: dropShadow(three-pass-box, rgba(0, 0, 0, 0.1), 10.0, 0.0, 0.0, 10.0);
-    -fx-background-color: white;
+    -fx-background-color: transparent;
     -fx-background-radius: 15;
     -fx-border-radius: 15;
-    -fx-border-color: #2596be;
-    -fx-border-width: 3px;
 }
 
 .text-area .scroll-pane {
     -fx-background-color: transparent;
 }
-.text-area .scroll-pane .viewport{
+
+.text-area .scroll-pane .viewport {
     -fx-background-color: transparent;
 }
-.text-area .scroll-pane .content{
+
+.text-area .scroll-pane .content {
     -fx-background-color: transparent;
+}
+
+.text-area .scroll-bar:vertical {
+    -fx-scale-x: 0;
 }
 
 .list-view {
     -fx-effect: dropShadow(three-pass-box, rgba(0, 0, 0, 0.1), 10.0, 0.0, 0.0, 10.0);
+    -fx-border-radius: 15;
+    -fx-background-radius: 15;
+    -fx-background-color: transparent;
+    -fx-border-width: 2;
+}
+
+.list-view .scroll-bar:vertical {
+    -fx-scale-x: 0;
 }
 
 .scroll-bar {

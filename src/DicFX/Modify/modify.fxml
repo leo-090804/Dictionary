@@ -1,23 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<!-- File modify.fxml -->
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-            prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="DicFX.Modify.modifyController">
+<AnchorPane prefHeight="480.0" prefWidth="730.0" style="-fx-background-color: #ADD8E6;"
+            xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="DicFX.Modify.modifyController" stylesheets="@modify.css">
     <children>
-        <TextField fx:id="searchBar" layoutX="24.0" layoutY="24.0" prefHeight="35.0"
-                   prefWidth="475.0"/>
-        <ListView fx:id="listView" layoutX="24.0" layoutY="69.0" prefHeight="309.0"
-                  prefWidth="475.0"/>
+        <TextField fx:id="searchBar" layoutX="51.0" layoutY="44.0" prefHeight="35.0"
+                   prefWidth="475.0" styleClass="search-bar" promptText="Enter a word"/>
 
-        <Button layoutX="509.0" layoutY="100.0" mnemonicParsing="false" onAction="#editPopup"
-                prefHeight="35.0" prefWidth="68.0" text="Edit"/>
+        <ListView fx:id="listView" layoutX="51.0" layoutY="112.0" prefHeight="343.0"
+                  prefWidth="640.0" styleClass="list-view"
+                  style="-fx-border-color: black;"/>
 
-        <Button layoutX="509.0" layoutY="252.0" mnemonicParsing="false" onAction="#addWord"
-                prefHeight="35.0" prefWidth="68.0" text="AddWord"/>
+        <Button layoutX="541.0" layoutY="44.0" mnemonicParsing="false" onAction="#editWord"
+                prefHeight="35.0" prefWidth="68.0" text="Search" styleClass="button"/>
+
+        <Button fx:id="addWordButton" layoutX="623.0" layoutY="44.0" mnemonicParsing="false"
+                onAction="#addWord" prefHeight="35.0" prefWidth="68.0" text="Add"
+                styleClass="button"/>
     </children>
 </AnchorPane>

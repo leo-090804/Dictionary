@@ -7,6 +7,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 <?import java.lang.String?>
 <AnchorPane prefHeight="480.0" prefWidth="730.0" style="-fx-background-color: #ADD8E6;"
@@ -14,17 +15,21 @@
             xmlns:fx="http://javafx.com/fxml/1" fx:controller="DicFX.Translate.TranslateController">
     <children>
         <TextArea fx:id="displayRes" layoutX="148.0" layoutY="120.0" prefHeight="280.0"
-                  prefWidth="434.0" promptText="Result here"
-                  style="-fx-border-width: 5; -fx-border-color: #2596be;" styleClass="text-area">
+                  prefWidth="434.0"
+                  styleClass="text-area">
             <font>
                 <Font name="Comic Sans MS" size="14.0"/>
             </font>
         </TextArea>
+        <Line fx:id="line" startX="80" startY="60" endX="525" endY="60"
+              layoutX="67.0" layoutY="56.0" opacity="0.5"
+              stroke="#2596be" strokeLineCap="BUTT" strokeWidth="4.0" styleClass="line">
+        </Line>
         <HBox alignment="CENTER" layoutX="148.0" layoutY="65.0" prefHeight="48.0"
               prefWidth="434.0">
             <children>
-                <TextField fx:id="inputWord" prefHeight="35.0" prefWidth="277.0"
-                           promptText="Insert here" styleClass="search-input">
+                <TextField fx:id="inputWord" prefHeight="25.0" prefWidth="277.0"
+                           promptText="Enter a word here" styleClass="search-input">
                     <font>
                         <Font name="Comic Sans MS" size="14.0"/>
                     </font>
@@ -34,7 +39,7 @@
                         styleClass="translate-button" text="Translate"/>
                 <Button fx:id="soundBtn" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false"
                         onMouseClicked="#playAudio" prefHeight="35.0" prefWidth="35.0"
-                        styleClass="translate-button" text="Button" textAlignment="CENTER">
+                        styleClass="sound-button" text="Button" textAlignment="CENTER">
                     <graphic>
                         <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true"
                                    preserveRatio="true">

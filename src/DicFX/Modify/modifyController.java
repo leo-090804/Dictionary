@@ -3,14 +3,14 @@ package DicFX.Modify;
 import DictionaryMethod.Offline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.VBox;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -18,130 +18,22 @@ import java.util.stream.Collectors;
 public class modifyController implements Initializable {
 
     Offline output = new Offline();
+    private static modifyController instance;
 
-    @FXML
-    void addWord(ActionEvent event) {
-        // Create a new Stage (popup window)
-        Stage popupStage = new Stage();
-        popupStage.setTitle("Add Word");
-
-        // Create TextFields for the word, word type, and meaning
-        TextField newWordTextField = new TextField();
-        newWordTextField.setPromptText("New word");
-
-        TextField newWordTypeTextField = new TextField();
-        newWordTypeTextField.setPromptText("New Word Type");
-
-        TextField newMeaningTextField = new TextField();
-        newMeaningTextField.setPromptText("New Meaning");
-
-        // Create a "Confirm" button
-        Button confirmButton = new Button("Confirm");
-        confirmButton.setOnAction(e -> {
-            // Get the data from the TextFields
-            String newWord = newWordTextField.getText();
-            String newWordType = newWordTypeTextField.getText();
-            String newMeaning = newMeaningTextField.getText();
-
-            // Call the addWord method
-            output.insertWord(newWord, newWordType, newMeaning);
-
-            // Close the popup window after confirmation
-            popupStage.close();
-        });
-
-        // Create a VBox to contain the components in the popup
-        VBox popupLayout = new VBox(10, newWordTextField, newWordTypeTextField, newMeaningTextField, confirmButton);
-        Scene popupScene = new Scene(popupLayout, 300, 200);
-
-        // Set the Scene for the popupStage
-        popupStage.setScene(popupScene);
-        popupStage.show();
+    public modifyController() {
+        instance = this;
     }
 
+    public static modifyController getInstance() {
+        return instance;
+    }
+
+
     @FXML
-    private TextField searchBar;
+    public TextField searchBar;
 
     @FXML
     private ListView<String> listView;
-
-
-    @FXML
-    void editPopup(ActionEvent event) {
-        Stage popupStage = new Stage();
-        popupStage.setTitle("Edit Word");
-        String wordtoedit = searchBar.getText();
-        String meaning = output.getMeaning(output.getWordTypeAndMeaning(wordtoedit));
-        String wordtype = output.getWordType(output.getWordTypeAndMeaning(wordtoedit));
-
-        // Tạo TextField tương ứng với các tham số của editWord
-        TextField newWordTextField = new TextField();
-        newWordTextField.setPromptText("New word");
-        newWordTextField.setEditable(false); // Set to non-editable initially
-
-        TextField newWordTypeTextField = new TextField();
-        newWordTypeTextField.setPromptText("New Word Type");
-        newWordTypeTextField.setEditable(false); // Set to non-editable initially
-
-        TextField newMeaningTextField = new TextField();
-        newMeaningTextField.setPromptText("New Meaning");
-        newMeaningTextField.setEditable(false); // Set to non-editable initially
-
-        // Get the current word and its meaning from the database
-        String currentWord = searchBar.getText();
-
-        // Set the text fields with the current word and meaning
-        newWordTextField.setText(currentWord);
-        newWordTypeTextField.setText(wordtype);
-        newMeaningTextField.setText(meaning);
-
-        // Tạo nút "Editor"
-        Button editorButton = new Button("Editor");
-        editorButton.setOnAction(e -> {
-            // Khi nhấn nút "Editor", cho phép chỉnh sửa TextField
-            newWordTextField.setEditable(true);
-            newWordTypeTextField.setEditable(true);
-            newMeaningTextField.setEditable(true);
-        });
-
-        Button confirmButton = new Button("Confirm");
-        confirmButton.setOnAction(e -> {
-            // Lấy dữ liệu từ TextField
-            String newWord = newWordTextField.getText();
-            String newWordType = newWordTypeTextField.getText();
-            String newMeaning = newMeaningTextField.getText();
-
-            // Gọi phương thức editWord
-            output.editWord(wordtoedit, newWord, newWordType, newMeaning);
-
-            // Đặt lại trạng thái không thể chỉnh sửa cho các trường văn bản
-            newWordTextField.setEditable(false);
-            newWordTypeTextField.setEditable(false);
-            newMeaningTextField.setEditable(false);
-
-//            // Đóng cửa sổ popup sau khi xác nhận
-//            popupStage.close();
-        });
-
-        // Tạo nút "Delete"
-        Button deleteButton = new Button("Delete");
-        deleteButton.setOnAction(e -> {
-            // Gọi phương thức deleteWord
-            output.deleteWord(newWordTextField.getText());
-
-            // Đóng cửa sổ popup sau khi xác nhận
-            popupStage.close();
-        });
-
-        // Tạo VBox để chứa các thành phần trong popup
-        VBox popupLayout = new VBox(10,
-                newWordTextField, newWordTypeTextField, newMeaningTextField, editorButton, confirmButton, deleteButton);
-        Scene popupScene = new Scene(popupLayout, 300, 200);
-
-        // Thiết lập Scene cho popupStage
-        popupStage.setScene(popupScene);
-        popupStage.show();
-    }
 
     @FXML
     void search(ActionEvent event) {
@@ -165,16 +57,29 @@ public class modifyController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
         listView.getItems().addAll(output.showAddedWord());
+
+        listView.setCellFactory(lv -> {
+            ListCell<String> cell = new ListCell<>();
+            cell.textProperty().bind(cell.itemProperty());
+            cell.setStyle(
+                    "-fx-background-color: transparent; " +
+//                            "-fx-border-color: pink; " +
+//                            "-fx-border-width: 1px; " +
+                            "-fx-border-radius: 15%;" +
+//                            "-fx-cell-size: 25px;"+
+                            "-fx-font-family: 'Comic Sans MS';" +
+                            "-fx-font-size: 14px;");
+            return cell;
+        });
 
         searchBar.setOnAction(event -> search(event));
 
         searchBar.textProperty().addListener((observable, oldValue, newValue) -> {
             listView.getItems().clear();
             String searchWord = newValue.trim();
-            if (searchWord.isEmpty()) {
-                listView.getItems().addAll(output.showAddedWord());
-            } else {
+            if (!searchWord.isEmpty()) {
                 try {
                     Set<String> allWordsOnlineSet = new HashSet<>(output.showAddedWord());
                     List<String> searchResults = searchList(searchWord, allWordsOnlineSet);
@@ -186,18 +91,68 @@ public class modifyController implements Initializable {
                 } catch (NullPointerException e) {
                     listView.getItems().add("Từ không có sẵn");
                 }
+            } else {
+                // Hiển thị thông báo khi danh sách rỗng
+                listView.getItems().addAll(output.showAddedWord());
             }
         });
 
         listView.setOnMouseClicked(event -> {
             String selectedText = listView.getSelectionModel().getSelectedItem();
-            if (!selectedText.equals(null)) {
+            if (selectedText != null) {
                 searchBar.setText(selectedText);
-                editPopup(null);
-            } else {
                 search(null);
             }
         });
+    }
+
+    //Hiển thị lập tức
+    public void updateListView() {
+        listView.getItems().clear();
+        listView.getItems().addAll(output.showAddedWord());
+    }
+
+    //Hiển thị Delete
+    public void deleteView() {
+        listView.getItems().clear();
+    }
+
+
+    @FXML
+    void addWord(ActionEvent event) throws IOException {
+        // Create a new Stage (popup window)
+        Stage popupStage = new Stage();
+        popupStage.setTitle("Add Word");
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("AddWord/addWord.fxml"));
+        Parent root = fxmlLoader.load();
+        Scene scene = new Scene(root);
+        popupStage.setScene(scene);
+        popupStage.show();
+        popupStage.setResizable(false);
+    }
+
+    @FXML
+    void editWord(ActionEvent event) throws IOException {
+        String searchWord = searchBar.getText().trim();
+        if (searchWord.isEmpty()) {
+            // Hiển thị thông báo khi searchBar trống
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Thông báo");
+            alert.setHeaderText(null);
+            alert.setContentText("Vui lòng nhập từ cần tìm kiếm");
+            alert.showAndWait();
+        } else {
+            // Create a new Stage (popup window)
+            Stage popupStage = new Stage();
+            popupStage.setTitle("Edit Word");
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EditWord/EditWord.fxml"));
+            Parent root = fxmlLoader.load();
+            Scene scene = new Scene(root);
+            popupStage.setScene(scene);
+            popupStage.show();
+            popupStage.setResizable(false);
+            popupStage.setResizable(false);
+        }
     }
 
     private List<String> searchList(String searchWords, Collection<String> collectionOfStrings) {
@@ -216,13 +171,13 @@ public class modifyController implements Initializable {
                 .filter(word -> calculateSimilarity(wordTarget, word) < 0.56)
                 .sorted((a, b) -> Double.compare(calculateSimilarity(wordTarget, b),
                         calculateSimilarity(wordTarget, a)))
-                .limit(3)  // Giới hạn kết quả chỉ tìm 3 từ tương đồng
                 .collect(Collectors.toList());
 
         if (!similarWords.isEmpty()) {
             listView.getItems().addAll(similarWords);
         } else {
-            listView.getItems().add("Không tìm thấy từ gần giống.");
+            Label label = new Label("Word not available");
+            listView.setPlaceholder(label);
         }
     }
 

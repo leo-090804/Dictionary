@@ -5,7 +5,6 @@ import DictionaryMethod.Offline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Line;
@@ -86,8 +85,6 @@ public class searchController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        Line line = new Line(100, 10, 10,110);
-
         textOut.setEditable(false);
         textOut.setWrapText(true);
 
@@ -110,7 +107,7 @@ public class searchController implements Initializable {
 //                            "-fx-border-width: 1px; " +
                             "-fx-border-radius: 15;" +
 //                            "-fx-cell-size: 25px;"+
-                            "-fx-font-family: 'Comic Sans MS';"+
+                            "-fx-font-family: 'Comic Sans MS';" +
                             "-fx-font-size: 14px;");
             return cell;
         });
@@ -151,7 +148,7 @@ public class searchController implements Initializable {
             if (selectedText != null) {
                 textOut.setText(output.searchWord(selectedText));
             } else {
-                listView.getItems().addAll(allWordsOfflineSet);
+//                listView.getItems().addAll(allWordsOfflineSet);
                 for (String word : output.getAllWordsOffline()) {
                     allWordsOfflineTrie.insert(word);
                 }
@@ -222,7 +219,9 @@ public class searchController implements Initializable {
 
     @FXML
     public void soundWord() {
-        usingOfflineSpeak(listView.getSelectionModel().getSelectedItem());
+        if (listView.getSelectionModel().getSelectedItem() != null) {
+            usingOfflineSpeak(listView.getSelectionModel().getSelectedItem());
+        }
     }
 }
 

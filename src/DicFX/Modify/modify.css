@@ -1,0 +1,34 @@
+.search-bar {
+    -fx-background-radius: 100;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-border-width: 2px;
+    -fx-padding: 10px;
+    -fx-effect: dropShadow(three-pass-box, rgba(0, 0, 0, 0.1), 10.0, 0.0, 0.0, 10.0);
+    -fx-prompt-text-fill: black;
+    -fx-font-family: "Comic Sans MS";
+    -fx-font-size: 14;
+}
+
+.list-view {
+    -fx-effect: dropShadow(three-pass-box, rgba(0, 0, 0, 0.1), 10.0, 0.0, 0.0, 10.0);
+    -fx-border-radius: 15;
+    -fx-background-radius: 15;
+    -fx-background-color: transparent;
+    -fx-border-width: 2;
+}
+
+.list-view .scroll-bar:vertical {
+    -fx-scale-x: 0;
+}
+
+.button {
+    -fx-background-color: #2596be;
+    -fx-text-fill: black;
+    -fx-font-family: "Comic Sans MS";
+}
+
+.button:hover {
+    -fx-background-color: #2196F3;
+    -fx-text-fill: white;
+}

@@ -1,12 +1,12 @@
 .search-box {
-    -fx-background-color: #FFFFFF;
+    -fx-background-color: transparent;
     -fx-background-radius: 100;
 }
 
 .search-input {
-    -fx-background-color: rgba(0, 0, 0, 0);
+    -fx-background-color: transparent;
+    -fx-prompt-text-fill: black;
 }
-
 
 .translate-button {
     -fx-background-color: #D3D3D3;
@@ -22,20 +22,35 @@
 }
 
 .text-area {
-    -fx-effect: dropShadow(three-pass-box, rgba(0, 0, 0, 0.1), 10.0, 0.0, 0.0, 10.0);
-    -fx-background-color: white;
+    /*-fx-effect: dropShadow(three-pass-box, rgba(0, 0, 0, 0.1), 10.0, 0.0, 0.0, 10.0);*/
+    -fx-background-color: transparent;
     -fx-background-radius: 15;
     -fx-border-radius: 15;
-    -fx-border-color: #2596be;
-    -fx-border-width: 3px;
+}
+
+.text-area .scroll-bar:vertical {
+    -fx-scale-x: 0;
 }
 
 .text-area .scroll-pane {
     -fx-background-color: transparent;
 }
-.text-area .scroll-pane .viewport{
+
+.text-area .scroll-pane .viewport {
     -fx-background-color: transparent;
 }
-.text-area .scroll-pane .content{
+
+.text-area .scroll-pane .content {
+    -fx-background-color: transparent;
+}
+
+.translate-button {
+    -fx-background-color: #2596be;
+    -fx-background-radius: 10;
+    -fx-text-fill: black;
+    -fx-font-family: "Comic Sans MS";
+}
+
+.sound-button {
     -fx-background-color: transparent;
 }

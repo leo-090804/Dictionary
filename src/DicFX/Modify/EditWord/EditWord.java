@@ -9,12 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
 import java.net.URL;
-import java.sql.*;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.ResourceBundle;
-
-import DictionaryMethod.Offline;
 
 public class EditWord implements Initializable {
 
@@ -44,31 +39,35 @@ public class EditWord implements Initializable {
         newWordType.setText(wordtype);
         newMeaning.setText(meaning);
     }
+
     String wordtype = output.getWordType(output.getWordTypeAndMeaning(wordtoedit));
     String meaning = output.getMeaning(output.getWordTypeAndMeaning(wordtoedit));
 
     @FXML
-    public void editWord()  {
+    public void editWord() {
         newWord.setEditable(true);
         newWordType.setEditable(true);
         newMeaning.setEditable(true);
-
     }
 
     @FXML
-    public void deleteWord()  {
+    public void deleteWord() {
 
         // Call the addWord method
         output.deleteWord(wordtoedit);
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Thông báo");
+        alert.setTitle("Done");
         alert.setHeaderText(null);
-        alert.setContentText("Từ này đã được xóa thành công!");
+        alert.setContentText("This word has been deleted successfully!");
         alert.showAndWait();
+
+        modifyController.getInstance().deleteView();
+
+
     }
 
     @FXML
-    public void setConfirmButton()  {
+    public void setConfirmButton() {
         // Get the data from the TextFields
         String newWord1 = newWord.getText();
         String newWordType1 = newWordType.getText();
@@ -80,12 +79,15 @@ public class EditWord implements Initializable {
         newMeaning.setEditable(false);
         // Hiển thị thông báo khi từ đã được chỉnh sửa
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Thông báo");
+        alert.setTitle("Done!");
         alert.setHeaderText(null);
-        alert.setContentText("Từ này đã được sửa thành công!");
+        alert.setContentText("This word has been edited successfully!");
         alert.showAndWait();
-    }
+        //Thêm chức năng hiển thị lập tức
+        modifyController.getInstance().updateListView();
 
+
+    }
 
 
 //    public Connection connection() {

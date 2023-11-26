@@ -75,12 +75,12 @@ public class phrvController implements Initializable {
             ListCell<String> cell = new ListCell<>();
             cell.textProperty().bind(cell.itemProperty());
             cell.setStyle(
-                    "-fx-background-color: white; " +
+                    "-fx-background-color: transparent; " +
 //                            "-fx-border-color: pink; " +
 //                            "-fx-border-width: 1px; " +
-//                            "-fx-border-radius: 15%;" +
+                            "-fx-border-radius: 15%;" +
 //                            "-fx-cell-size: 25px;"+
-                            "-fx-font-family: 'Comic Sans MS';"+
+                            "-fx-font-family: 'Comic Sans MS';" +
                             "-fx-font-size: 14px;");
             return cell;
         });

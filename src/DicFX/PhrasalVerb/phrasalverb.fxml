@@ -5,8 +5,9 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
-<?import java.lang.*?>
+<?import java.lang.String?>
 <AnchorPane prefHeight="480.0" prefWidth="730.0" style="-fx-background-color: #ADD8E6;"
             xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="DicFX.PhrasalVerb.phrvController">
@@ -27,8 +28,8 @@
                         <Font name="Comic Sans MS" size="14.0"/>
                     </font>
                 </TextField>
-                <Button fx:id="searchBtn" contentDisplay="GRAPHIC_ONLY" layoutX="260.0"
-                        layoutY="38.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0"
+                <Button fx:id="searchBtn" contentDisplay="GRAPHIC_ONLY" layoutX="255.0"
+                        layoutY="43.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0"
                         stylesheets="@phrasalverb.css" text="Button">
                     <graphic>
                         <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true"
@@ -44,6 +45,10 @@
                 </Button>
             </children>
         </AnchorPane>
+        <Line fx:id="line" startX="255.0" startY="40.0" endX="255.0" endY="400.0"
+              layoutX="67.0" layoutY="56.0" opacity="0.5"
+              stroke="#2596be" strokeLineCap="BUTT" strokeWidth="4.0" styleClass="line">
+        </Line>
         <AnchorPane layoutX="300.0" layoutY="1.0" prefHeight="480.0" prefWidth="430.0">
             <children>
                 <TextArea fx:id="textOut" layoutX="34.0" layoutY="96.0" prefHeight="360.0"

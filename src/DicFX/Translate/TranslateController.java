@@ -9,6 +9,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.media.MediaPlayer;
+import javafx.scene.shape.Line;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -22,6 +23,9 @@ public class TranslateController implements Initializable {
 
     @FXML
     private TextField inputWord;
+
+    @FXML
+    Line line = new Line();
 
     @FXML
     private Button soundBtn;
