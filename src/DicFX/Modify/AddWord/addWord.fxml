@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="369.0" prefWidth="638.0" style="-fx-background-color: #ADD8E6;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DicFX.Modify.AddWord.AddWord">
+    <children>
+        <TextField id="newWord" fx:id="newWord" alignment="TOP_LEFT" layoutX="45.0" layoutY="26.0" prefHeight="36.0" prefWidth="565.0" promptText="New word">
+         <font>
+            <Font name="Times New Roman" size="18.0" />
+         </font></TextField>
+        <TextField id="newWordType" fx:id="newWordType" alignment="TOP_LEFT" layoutX="45.0" layoutY="78.0" prefHeight="36.0" prefWidth="565.0" promptText="New word type">
+         <font>
+            <Font name="Times New Roman" size="18.0" />
+         </font></TextField>
+        <TextField id="newMeaning" fx:id="newMeaning" alignment="TOP_LEFT" layoutX="45.0" layoutY="127.0" prefHeight="167.0" prefWidth="565.0" promptText="New meaning">
+         <font>
+            <Font name="Times New Roman" size="18.0" />
+         </font></TextField>
+        <Button id="confirmButton" fx:id="confirmButton" layoutX="537.0" layoutY="304.0" mnemonicParsing="false" onMouseClicked="#addedword" prefHeight="36.0" prefWidth="73.0" text="Add">
+         <font>
+            <Font name="Times New Roman Bold Italic" size="24.0" />
+         </font></Button>
+    </children>
+</AnchorPane>
