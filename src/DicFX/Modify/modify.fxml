@@ -1,21 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+            prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="DicFX.Modify.modifyController">
+    <children>
+        <TextField fx:id="searchBar" layoutX="24.0" layoutY="24.0" prefHeight="35.0"
+                   prefWidth="475.0"/>
+        <ListView fx:id="listView" layoutX="24.0" layoutY="69.0" prefHeight="309.0"
+                  prefWidth="475.0"/>
 
+        <Button layoutX="509.0" layoutY="100.0" mnemonicParsing="false" onAction="#editPopup"
+                prefHeight="35.0" prefWidth="68.0" text="Edit"/>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DicFX.Modify.modifyController">
-   <children>
-      <TextField fx:id="searchBar" layoutX="24.0" layoutY="24.0" prefHeight="35.0" prefWidth="475.0" />
-      <ListView fx:id="listView" layoutX="24.0" layoutY="69.0" prefHeight="309.0"
-                prefWidth="475.0" />
-
-      <Button layoutX="509.0" layoutY="100.0" mnemonicParsing="false" onAction="#editPopup"
-              prefHeight="35.0" prefWidth="68.0" text="Edit"/>
-
-      <Button layoutX="509.0" layoutY="252.0" mnemonicParsing="false" onAction="#addWord"
-              prefHeight="35.0" prefWidth="68.0" text="AddWord"/>
-   </children>
+        <Button layoutX="509.0" layoutY="252.0" mnemonicParsing="false" onAction="#addWord"
+                prefHeight="35.0" prefWidth="68.0" text="AddWord"/>
+    </children>
 </AnchorPane>

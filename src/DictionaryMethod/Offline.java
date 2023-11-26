@@ -1,7 +1,6 @@
 package DictionaryMethod;
 
 import java.sql.*;
-
 import java.util.*;
 
 public class Offline implements DictionaryConnection {
@@ -120,7 +119,7 @@ public class Offline implements DictionaryConnection {
         return searchResults;
     }
 
-    public void insertWord (String newWord, String newWordType, String newMeaing) {
+    public void insertWord(String newWord, String newWordType, String newMeaing) {
         String insertQuery = "INSERT INTO addedword (word, wordtype, meaning) VALUES (?, ?, ?)";
 
         try (Connection newConnection = this.connection();
@@ -263,6 +262,59 @@ public class Offline implements DictionaryConnection {
         return words;
     }
 
+    public List<String> getAllPhrasesOffline() {
+        String sql = "SELECT phrv FROM phrasalverb ORDER BY phrv";
+
+        List<String> words = new ArrayList<>();
+
+        try (Connection conn = this.connection();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+
+            while (rs.next()) {
+                String word = rs.getString("phrv");
+                words.add(word.toLowerCase());
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println(e.getMessage());
+        }
+        return words;
+    }
+
+    public String searchPhrase(String word) {
+        StringBuilder output = new StringBuilder(word).append("\n\n");
+        String searchQuery = "SELECT derivative, meaning, examples, synonyms FROM phrasalverb " +
+                "WHERE " +
+                "phrv =" +
+                " ?";
+
+        try (Connection newConnection = this.connection(); PreparedStatement query =
+                newConnection.prepareStatement(searchQuery)) {
+            query.setString(1, word);
+            ResultSet outputString = query.executeQuery();
+
+            String derivative = outputString.getString("derivative");
+            output.append("Derivative:\n").append(derivative + "\n\n");
+
+            String meaning = outputString.getString("meaning");
+            output.append("Meaning:\n").append(meaning + "\n");
+
+
+            String examples = outputString.getString("examples");
+            output.append("For example:\n").append(examples + "\n");
+
+
+            String synonyms = outputString.getString("synonyms");
+            output.append("Synonyms:\n").append(synonyms + "\n");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println(e.getMessage());
+        }
+        thisDefinition = output.toString();
+        return output.toString();
+    }
 
     public static void main(String[] args) {
         Offline test = new Offline();

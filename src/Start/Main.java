@@ -7,6 +7,9 @@ import Management.DictionaryManagement;
 
 import java.util.Scanner;
 
+/**
+ * Đây là phần Main khởi đầu theo, demo theo hướng dẫn
+ */
 public class Main {
     public static Dictionary dictionary = new Dictionary();
 

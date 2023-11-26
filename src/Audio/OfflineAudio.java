@@ -4,7 +4,7 @@ import com.sun.speech.freetts.Voice;
 import com.sun.speech.freetts.VoiceManager;
 
 public class OfflineAudio {
-    public static void usingOfflineSpeak (String text) {
+    public static void usingOfflineSpeak(String text) {
         System.setProperty("freetts.voices", "com.sun.speech.freetts.en.us.cmu_us_kal.KevinVoiceDirectory");
         // Khoi tao sound
         // set nguoi noi la kevin16

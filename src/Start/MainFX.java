@@ -1,20 +1,15 @@
 package Start;
 
+import Management.Dictionary;
 import Management.DictionaryCommandline;
 import Management.DictionaryManagement;
-import Management.Dictionary;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
-import javafx.scene.media.MediaView;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.Objects;
 
@@ -23,7 +18,7 @@ public class MainFX extends Application {
     private DictionaryCommandline dictionaryCommandline;
     private DictionaryManagement dictionaryManagement;
 
-    private double xOffset,yOffset = 0;
+    private double xOffset, yOffset = 0;
 
 
     public static void main(String[] args) {
@@ -34,8 +29,12 @@ public class MainFX extends Application {
     public void start(Stage primaryStage) throws IOException {
         Parent root =
                 FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../DicFX/main.fxml")));
-        primaryStage.setTitle("Dictionary Application");
-        primaryStage.initStyle(StageStyle.TRANSPARENT);
+        primaryStage.setTitle("Multifunction Dictionary");
+        primaryStage.setResizable(false);
+        Image icon = new Image("img/icons8-english-48.png");
+        primaryStage.getIcons().add(icon);
+
+        // primaryStage.initStyle(StageStyle.TRANSPARENT);
         // Gan xu ly su kien cho Node root lam cho dictionary co the keo tha vi tri
         // Lay toa do cua chuot khi chuot click vao vi tri bat ky
         root.setOnMousePressed(event -> {

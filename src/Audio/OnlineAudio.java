@@ -11,7 +11,6 @@ public class OnlineAudio {
     public final static SynthesiserV2 synthesizer = new SynthesiserV2("AIzaSyBOti4mM-6x9WDnZIjIeyEU21OpBXqWBgw");
 
 
-
     public static void usingOnlineSpeak(String text) {
 
 

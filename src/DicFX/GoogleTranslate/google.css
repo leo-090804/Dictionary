@@ -1,0 +1,40 @@
+.sound-button {
+    -fx-background-color: #D3D3D3;
+    -fx-background-radius: 30;
+}
+
+.sound-button:hover {
+    -fx-background-color: #828282;
+}
+
+.shadow {
+    -fx-effect: dropShadow(three-pass-box, rgba(0, 0, 0, 0.1), 10.0, 0.0, 0.0, 10.0);
+}
+
+.scroll-bar {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar .thumb {
+    -fx-background-color: #ADD8E6;
+    -fx-background-radius: 10;
+}
+
+.trans {
+    -fx-background-color: #2596be;
+    -fx-text-fill: white;
+
+}
+
+.trans:hover {
+    -fx-background-color: #2196F3;
+    -fx-text-fill: white;
+
+}
+
+.label {
+    -fx-background-color: #2196F3;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 30;
+}

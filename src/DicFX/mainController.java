@@ -6,9 +6,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
-import javafx.fxml.FXMLLoader;
 
 import java.io.IOException;
 import java.net.URL;
@@ -57,6 +55,11 @@ public class mainController implements Initializable {
     @FXML
     private void modifyPage(MouseEvent event) {
         displayPage("Modify/modify.fxml");
+    }
+
+    @FXML
+    private void phrvPage(MouseEvent event) {
+        displayPage("PhrasalVerb/phrasalverb.fxml");
     }
 
     private void displayPage(String path) {

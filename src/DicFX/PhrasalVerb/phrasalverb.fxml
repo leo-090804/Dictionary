@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+<?import java.lang.*?>
+<AnchorPane prefHeight="480.0" prefWidth="730.0" style="-fx-background-color: #ADD8E6;"
+            xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="DicFX.PhrasalVerb.phrvController">
+    <children>
+        <AnchorPane prefHeight="480.0" prefWidth="300.0"
+                    style="-fx-background: #3EECAC, linear-gradient(19deg, #3EECAC 0%, #EE74E1 100%);">
+            <children>
+                <ListView fx:id="listView" layoutX="20.0" layoutY="96.0" maxHeight="360.0"
+                          prefHeight="360.0" prefWidth="280.0" style="-fx-border-color: black;"
+                          styleClass="list-view" stylesheets="@phrasalverb.css"/>
+                <TextField fx:id="inputtext" layoutX="20.0" layoutY="38.0" prefHeight="40.0"
+                           prefWidth="229.0" promptText="Type text here"
+                           stylesheets="@phrasalverb.css">
+                    <styleClass>
+                        <String fx:value="search-box"/>
+                    </styleClass>
+                    <font>
+                        <Font name="Comic Sans MS" size="14.0"/>
+                    </font>
+                </TextField>
+                <Button fx:id="searchBtn" contentDisplay="GRAPHIC_ONLY" layoutX="260.0"
+                        layoutY="38.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0"
+                        stylesheets="@phrasalverb.css" text="Button">
+                    <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true"
+                                   preserveRatio="true">
+                            <image>
+                                <Image url="@../../img/search.png"/>
+                            </image>
+                        </ImageView>
+                    </graphic>
+                    <styleClass>
+                        <String fx:value="search-button"/>
+                    </styleClass>
+                </Button>
+            </children>
+        </AnchorPane>
+        <AnchorPane layoutX="300.0" layoutY="1.0" prefHeight="480.0" prefWidth="430.0">
+            <children>
+                <TextArea fx:id="textOut" layoutX="34.0" layoutY="96.0" prefHeight="360.0"
+                          prefWidth="360.0"
+                          style="-fx-border-radius: 15; -fx-background-radius: 15;"
+                          styleClass="text-area" stylesheets="@phrasalverb.css">
+                    <font>
+                        <Font name="Comic Sans MS" size="14.0"/>
+                    </font>
+                </TextArea>
+                <HBox alignment="TOP_RIGHT" layoutX="34.0" layoutY="36.0" prefHeight="42.0"
+                      prefWidth="360.0">
+                    <children>
+                        <Button fx:id="soundBtn" contentDisplay="GRAPHIC_ONLY"
+                                mnemonicParsing="false" onMouseClicked="#soundWord"
+                                prefHeight="42.0" prefWidth="42.0" stylesheets="@phrasalverb.css"
+                                text="Button" textAlignment="CENTER">
+                            <graphic>
+                                <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true"
+                                           preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../img/icons8-sound-32.png"/>
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                            <styleClass>
+                                <String fx:value="search-button"/>
+                            </styleClass>
+                        </Button>
+                    </children>
+                </HBox>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>

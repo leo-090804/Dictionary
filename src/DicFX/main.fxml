@@ -1,73 +1,107 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.Pane?>
-
-<BorderPane fx:id="mainMenu" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DicFX.mainController">
-   <center>
-      <AnchorPane prefHeight="480.0" prefWidth="730.0" BorderPane.alignment="CENTER" />
-   </center>
-   <left>
-      <Pane prefHeight="480.0" prefWidth="70.0" style="-fx-background-color: pink;"
-            stylesheets="@style.css" BorderPane.alignment="CENTER">
-         <children>
-            <Button fx:id="searchBtn" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" layoutX="10.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#searchPage" prefHeight="48.0" prefWidth="48.0" text="Button">
-               <graphic>
-                  <ImageView fitHeight="32.0" fitWidth="32.0" onMouseClicked="#searchPage" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../img/search.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button fx:id="addBtn" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" layoutX="10.0" layoutY="80.0" mnemonicParsing="false" onMouseClicked="#translatePage" prefHeight="48.0" prefWidth="48.0" text="Button">
-               <graphic>
-                  <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../img/searchgobal.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button fx:id="translateBtn" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" layoutX="10.0" layoutY="151.0" mnemonicParsing="false" onMouseClicked="#googleTranslatePage" prefHeight="48.0" prefWidth="48.0" text="Button">
-               <graphic>
-                  <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../img/translate.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button fx:id="gameBtn" contentDisplay="GRAPHIC_ONLY" layoutX="10.0" layoutY="220.0" mnemonicParsing="false" onMouseClicked="#gamePage" prefHeight="48.0" prefWidth="48.0" text="Button">
-               <graphic>
-                  <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../img/games.png" />
-                     </image></ImageView>
-               </graphic>
-            </Button>
-            <Button fx:id="exitBtn" contentDisplay="GRAPHIC_ONLY" layoutX="10.0" layoutY="426.0" mnemonicParsing="false" onMouseClicked="#exitPage" prefHeight="48.0" prefWidth="48.0" text="Button">
-               <graphic>
-                  <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../img/logout.png" />
-                     </image></ImageView>
-               </graphic>
-            </Button>
-            <Button fx:id="modifyBtn" contentDisplay="GRAPHIC_ONLY" layoutX="10.0" layoutY="286.0" mnemonicParsing="false" onMouseClicked="#modifyPage" prefHeight="48.0" prefWidth="48.0" text="Button">
-               <graphic>
-                  <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../img/server.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-         </children>
-      </Pane>
-   </left>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<BorderPane fx:id="mainMenu" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+            minWidth="-Infinity" prefHeight="480.0" prefWidth="800.0"
+            xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="DicFX.mainController">
+    <center>
+        <AnchorPane prefHeight="480.0" prefWidth="730.0" BorderPane.alignment="CENTER"/>
+    </center>
+    <left>
+        <Pane prefHeight="480.0" prefWidth="70.0" style="-fx-background-color: #2596be;"
+              stylesheets="@style.css" BorderPane.alignment="CENTER">
+            <children>
+                <Button fx:id="searchBtn" alignment="CENTER" contentDisplay="GRAPHIC_ONLY"
+                        layoutX="10.0" layoutY="14.0" mnemonicParsing="false"
+                        onMouseClicked="#searchPage" prefHeight="48.0" prefWidth="48.0"
+                        text="Button">
+                    <graphic>
+                        <ImageView fitHeight="32.0" fitWidth="32.0" onMouseClicked="#searchPage"
+                                   pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../img/icons8-search-32.png"/>
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button fx:id="addBtn" alignment="CENTER" contentDisplay="GRAPHIC_ONLY"
+                        layoutX="10.0" layoutY="64" mnemonicParsing="false"
+                        onMouseClicked="#translatePage" prefHeight="48.0" prefWidth="48.0"
+                        text="Button">
+                    <graphic>
+                        <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true"
+                                   preserveRatio="true">
+                            <image>
+                                <Image url="@../img/icons8-global-32.png"/>
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button fx:id="translateBtn" alignment="CENTER" contentDisplay="GRAPHIC_ONLY"
+                        layoutX="10.0" layoutY="114" mnemonicParsing="false"
+                        onMouseClicked="#googleTranslatePage" prefHeight="48.0" prefWidth="48.0"
+                        text="Button">
+                    <graphic>
+                        <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true"
+                                   preserveRatio="true">
+                            <image>
+                                <Image url="@../img/icons8-google-32.png"/>
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button fx:id="gameBtn" contentDisplay="GRAPHIC_ONLY" layoutX="10.0" layoutY="164"
+                        mnemonicParsing="false" onMouseClicked="#gamePage" prefHeight="48.0"
+                        prefWidth="48.0" text="Button">
+                    <graphic>
+                        <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true"
+                                   preserveRatio="true">
+                            <image>
+                                <Image url="@../img/icons8-game-32.png"/>
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button fx:id="exitBtn" contentDisplay="GRAPHIC_ONLY" layoutX="10.0" layoutY="426.0"
+                        mnemonicParsing="false" onMouseClicked="#exitPage" prefHeight="48.0"
+                        prefWidth="48.0" text="Button">
+                    <graphic>
+                        <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true"
+                                   preserveRatio="true">
+                            <image>
+                                <Image url="@../img/icons8-logout-32.png"/>
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button fx:id="modifyBtn" contentDisplay="GRAPHIC_ONLY" layoutX="10.0"
+                        layoutY="214" mnemonicParsing="false" onMouseClicked="#modifyPage"
+                        prefHeight="48.0" prefWidth="48.0" text="Button">
+                    <graphic>
+                        <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true"
+                                   preserveRatio="true">
+                            <image>
+                                <Image url="@../img/icons8-bookmark-32.png"/>
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button fx:id="phrvBtn" contentDisplay="GRAPHIC_ONLY" layoutX="10.0" layoutY="264"
+                        mnemonicParsing="false" onMouseClicked="#phrvPage" prefHeight="48.0"
+                        prefWidth="48.0" text="Button">
+                    <graphic>
+                        <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true"
+                                   preserveRatio="true">
+                            <image>
+                                <Image url="@../img/icons8-search-32-phrv.png"/>
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+            </children>
+        </Pane>
+    </left>
 </BorderPane>

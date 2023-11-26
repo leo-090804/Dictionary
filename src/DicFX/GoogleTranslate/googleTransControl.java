@@ -22,7 +22,7 @@ import static Audio.OnlineAudio.usingOnlineSpeak;
 public class googleTransControl implements Initializable {
 
     GoogleTranslateAPI api = new GoogleTranslateAPI();
-    private final String API_KEY = api.getAPI_KEY();
+    private String API_KEY = api.getAPI_KEY();
     // Key API connection
     private String SRC_LANG = "en";
     private String OUT_LANG = "vi";
@@ -72,18 +72,24 @@ public class googleTransControl implements Initializable {
     @FXML
     public void translateTextInput() throws IOException {
         String input = inputArea.getText();
+        if (input != null) {
 
-        try {
-            // Dich bang Google API
-            Translate translateTest = TranslateOptions.newBuilder().setApiKey("API_KEY").build().getService();
-            Translation translation = translateTest.translate(input, Translate.TranslateOption.sourceLanguage(SRC_LANG), Translate.TranslateOption.targetLanguage(OUT_LANG));
-            String translatedText = translation.getTranslatedText();
-            outputArea.setText(translatedText.toString());
-        } catch (Exception e) {
-            System.out.println("API Dead");
-            // Dich bang unoffical google API
-            String translatedText = GoogleTranslate.translate(SRC_LANG, OUT_LANG, input);
-            outputArea.setText(translatedText.toString());
+
+            try {
+                // Dich bang Google API
+                Translate translateTest = TranslateOptions.newBuilder().setApiKey("API_KEY").build().getService();
+                Translation translation = translateTest.translate(input, Translate.TranslateOption.sourceLanguage(SRC_LANG), Translate.TranslateOption.targetLanguage(OUT_LANG));
+                String translatedText = translation.getTranslatedText();
+                outputArea.setText(translatedText.toString());
+            } catch (Exception e1) {
+                try {
+                    // Dich bang unoffical google API
+                    String translatedText = GoogleTranslate.translate(SRC_LANG, OUT_LANG, input);
+                    outputArea.setText(translatedText.toString());
+                } catch (Exception e2) {
+                    System.out.println("Khong tim thay tu");
+                }
+            }
         }
 
     }
@@ -106,22 +112,21 @@ public class googleTransControl implements Initializable {
         SRC_LANG = OUT_LANG;
         OUT_LANG = tmp;
 
-        // swap ca inputArea khi an
-        String in = inputArea.getText();
-        String out = outputArea.getText();
-
-
-        inputArea.setText(out);
-        outputArea.setText(in);
-
-        // swap ca label
+        // Hoán đổi nội dung của hai nhãn Label
         String lb1 = Label1.getText();
         String lb2 = Label2.getText();
-
-
         Label1.setText(lb2);
         Label2.setText(lb1);
 
-
+        // Kiểm tra xem outputArea có rỗng hay không
+        if (!outputArea.getText().isEmpty()) {
+            // Hoán đổi nội dung của hai vùng văn bản inputArea và outputArea
+            String in = inputArea.getText();
+            String out = outputArea.getText();
+            inputArea.setText(out);
+            outputArea.setText(in);
+        }
     }
+
+
 }

@@ -1,8 +1,7 @@
 package Management;
 
-import Management.Dictionary;
-
-import java.util.*;
+import java.util.Iterator;
+import java.util.Scanner;
 
 public class DictionaryCommandline {
 

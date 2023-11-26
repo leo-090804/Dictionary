@@ -5,19 +5,10 @@ import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-
 import java.net.HttpURLConnection;
 import java.net.URL;
-
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class Online implements DictionaryConnection {
 
@@ -40,7 +31,8 @@ public class Online implements DictionaryConnection {
         return "Online";
     }
 
-    List<String>wordlist = new ArrayList<>();
+    List<String> wordlist = new ArrayList<>();
+
     @Override
     public String searchWord(String newWord) {
         // Main output

@@ -1,7 +1,6 @@
 package DicFX.Modify;
 
 import DictionaryMethod.Offline;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -173,10 +172,9 @@ public class modifyController implements Initializable {
         searchBar.textProperty().addListener((observable, oldValue, newValue) -> {
             listView.getItems().clear();
             String searchWord = newValue.trim();
-            if (searchWord.isEmpty()){
+            if (searchWord.isEmpty()) {
                 listView.getItems().addAll(output.showAddedWord());
-            }
-            else {
+            } else {
                 try {
                     Set<String> allWordsOnlineSet = new HashSet<>(output.showAddedWord());
                     List<String> searchResults = searchList(searchWord, allWordsOnlineSet);
@@ -196,8 +194,7 @@ public class modifyController implements Initializable {
             if (!selectedText.equals(null)) {
                 searchBar.setText(selectedText);
                 editPopup(null);
-            }
-            else {
+            } else {
                 search(null);
             }
         });

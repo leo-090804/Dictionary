@@ -1,39 +1,98 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.AnchorPane?>
-
-<AnchorPane prefHeight="480.0" prefWidth="730.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DicFX.GoogleTranslate.googleTransControl">
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<AnchorPane prefHeight="480.0" prefWidth="730.0" style="-fx-background-color: #ADD8E6;"
+            stylesheets="@google.css" xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="DicFX.GoogleTranslate.googleTransControl">
     <children>
-        <TextArea fx:id="inputArea" layoutX="46.0" layoutY="75.0" prefHeight="300.0" prefWidth="300.0" promptText="Insert here" />
-        <TextArea fx:id="outputArea" layoutX="376.0" layoutY="75.0" prefHeight="300.0" prefWidth="300.0" promptText="Result here" />
-        <Button fx:id="transBtn" layoutX="331.0" layoutY="399.0" mnemonicParsing="false" onMouseClicked="#translateTextInput" text="Translate" />
-        <Label fx:id="Label1" alignment="CENTER" layoutX="46.0" layoutY="17.0" prefHeight="48.0" prefWidth="300.0" text="ENGLISH" textAlignment="CENTER" />
-        <Label fx:id="Label2" alignment="CENTER" layoutX="376.0" layoutY="17.0" prefHeight="48.0" prefWidth="300.0" text="VIETNAMESE" textAlignment="CENTER" />
-        <ImageView fx:id="Img1" fitHeight="48.0" fitWidth="48.0" layoutX="110.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true" />
-        <ImageView fx:id="Img2" fitHeight="48.0" fitWidth="48.0" layoutX="429.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-      <Button fx:id="switchBtn" layoutX="338.0" layoutY="28.0" mnemonicParsing="false" onMouseClicked="#SwitchTrans" text="Switch" />
-      <Button fx:id="soundBtn" contentDisplay="GRAPHIC_ONLY" layoutX="611.0" layoutY="33.0" mnemonicParsing="false" onMouseClicked="#playAudioOut" prefHeight="42.0" prefWidth="42.0" text="Button" textAlignment="CENTER">
-         <graphic>
-            <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../img/icons8-sound-32.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
-      <Button fx:id="soundBtn1" contentDisplay="GRAPHIC_ONLY" layoutX="272.0" layoutY="33.0" mnemonicParsing="false" onMouseClicked="#playAudioIn" prefHeight="42.0" prefWidth="42.0" text="Button" textAlignment="CENTER">
-         <graphic>
-            <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../img/icons8-sound-32.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
+        <TextArea fx:id="inputArea" layoutX="31.0" layoutY="109.0" prefHeight="300.0"
+                  prefWidth="300.0" promptText="Insert here"
+                  style="-fx-border-width: 5; -fx-border-color: #2596be;" styleClass="shadow">
+            <font>
+                <Font name="Arial" size="13.0"/>
+            </font>
+        </TextArea>
+        <TextArea fx:id="outputArea" layoutX="400.0" layoutY="109.0" prefHeight="300.0"
+                  prefWidth="300.0" promptText="Result here"
+                  style="-fx-border-width: 5; -fx-border-color: #2596be;" styleClass="shadow">
+            <font>
+                <Font name="Arial" size="13.0"/>
+            </font>
+        </TextArea>
+        <Button fx:id="transBtn" alignment="CENTER" layoutX="331.0" layoutY="426.0"
+                mnemonicParsing="false" onMouseClicked="#translateTextInput" text="Translate">
+            <styleClass>
+                <String fx:value="shadow"/>
+                <String fx:value="trans"/>
+            </styleClass>
+            <font>
+                <Font name="Arial Bold" size="14.0"/>
+            </font>
+        </Button>
+        <Label fx:id="Label1" alignment="CENTER" layoutX="31.0" layoutY="9.0" prefHeight="48.0"
+               prefWidth="300.0" text="ENGLISH" textAlignment="CENTER">
+            <font>
+                <Font size="24.0"/>
+            </font>
+        </Label>
+        <Label fx:id="Label2" alignment="CENTER" layoutX="400.0" layoutY="9.0" prefHeight="48.0"
+               prefWidth="300.0" text="VIETNAMESE" textAlignment="CENTER">
+            <font>
+                <Font size="24.0"/>
+            </font>
+        </Label>
+        <Button fx:id="switchBtn" contentDisplay="GRAPHIC_ONLY" layoutX="341.0" layoutY="12.0"
+                mnemonicParsing="false" onMouseClicked="#SwitchTrans" prefHeight="42.0"
+                prefWidth="42.0">
+            <graphic>
+                <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true"
+                           preserveRatio="true">
+                    <image>
+                        <Image url="@../../img/icons8-swap-32.png"/>
+                    </image>
+                </ImageView>
+            </graphic>
+            <styleClass>
+                <String fx:value="sound-button"/>
+                <String fx:value="shadow"/>
+            </styleClass>
+        </Button>
+        <Button fx:id="btn1" contentDisplay="GRAPHIC_ONLY" layoutX="281.0" layoutY="60.0"
+                mnemonicParsing="false" onMouseClicked="#playAudioIn" prefHeight="42.0"
+                prefWidth="42.0" text="Button" textAlignment="CENTER">
+            <graphic>
+                <ImageView fitHeight="32.0" fitWidth="32.0" onMouseClicked="#playAudioIn"
+                           pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../img/icons8-sound-32.png"/>
+                    </image>
+                </ImageView>
+            </graphic>
+            <styleClass>
+                <String fx:value="sound-button"/>
+                <String fx:value="shadow"/>
+            </styleClass>
+        </Button>
+        <Button fx:id="btn2" contentDisplay="GRAPHIC_ONLY" layoutX="650.0" layoutY="60.0"
+                mnemonicParsing="false" onMouseClicked="#playAudioOut" prefHeight="42.0"
+                prefWidth="42.0" text="Button" textAlignment="CENTER">
+            <styleClass>
+                <String fx:value="sound-button"/>
+                <String fx:value="shadow"/>
+            </styleClass>
+            <graphic>
+                <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true"
+                           preserveRatio="true">
+                    <image>
+                        <Image url="@../../img/icons8-sound-32.png"/>
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
     </children>
 </AnchorPane>
